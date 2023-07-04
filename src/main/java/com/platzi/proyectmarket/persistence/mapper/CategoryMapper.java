@@ -1,5 +1,6 @@
 package com.platzi.proyectmarket.persistence.mapper;
 
+
 import com.platzi.proyectmarket.domain.Category;
 import com.platzi.proyectmarket.persistence.entity.Categoria;
 import org.mapstruct.InheritInverseConfiguration;
@@ -7,14 +8,15 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper (componentModel = "spring")
+@Mapper(componentModel = "spring")
 public interface CategoryMapper {
     @Mappings({
-        @Mapping(source = "idCategoria", target = "categoryId"),
-        @Mapping(source = "descripcion", target = "category"),
-        @Mapping(source = "estado", target = "active"),
+            @Mapping(source = "idCategoria", target = "categoryId"),
+            @Mapping(source = "descripcion", target = "category"),
+            @Mapping(source = "estado", target = "active"),
     })
-    Category toCatergory(Categoria categoria);
+    Category toCategory(Categoria categoria);
+
     @InheritInverseConfiguration
     @Mapping(target = "productos", ignore = true)
     Categoria toCategoria(Category category);
